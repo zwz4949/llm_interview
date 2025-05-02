@@ -1,6 +1,12 @@
 > 介绍self-attention 和 cross-attention
 Self-Attention 是一种让模型能够关注输入序列中所有位置信息的机制，它计算序列中每个元素与其他所有元素的相关性。完全基于输入序列内部的关系；能够捕捉长距离依赖关系
 
+![alt text](image-2.png)
+
+decoder-only的自回归（因果）selfattention的qkv都是由decoder的输入变换而来的。而且他的mask矩阵是下三角矩阵，因为每个位置i只能看见他之前的位置。
+
+
+
 > 介绍多头注意力
 
 > 介绍MHA, MQA, GQA, 
