@@ -8,8 +8,15 @@ decoder-only的自回归（因果）selfattention的qkv都是由decoder的输入
 
 
 > 介绍多头注意力
+它通过将输入表示并行拆分成多个“头”，在不同子空间各自执行注意力计算，然后将各头输出拼接并线性变换。多个头使得提升模型对不同语义关系的捕捉能力
 
 > 介绍MHA, MQA, GQA, 
+MHA就是最常见的多头注意力，每个head的q都对应各自的kv
+
+MQA是每个head的q都只对应一个k和v。
+
+GQA是MQA和MHA的折中，对于每若干个q组成一组，每一组对应一个k和v，被对应的这个k和v是原本这组的每个q对应的k和v求平均得来的。
+
 - 在 MHA（Multi Head Attention） 中，每个头有自己单独的 key-value 对；标准的多头注意力机制，h个Query、Key 和 Value 矩阵。
 
 - 在 MQA（Multi Query Attention） 中只会有一组 key-value 对；多查询注意力的一种变体，也是用于自回归解码的一种注意力机制。与MHA不同的是，MQA 让所有的头之间共享同一份 Key 和 Value 矩阵，每个头只单独保留了一份 Query 参数，从而大大减少 Key 和 Value 矩阵的参数量。
