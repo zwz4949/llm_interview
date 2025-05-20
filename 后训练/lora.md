@@ -7,3 +7,4 @@ LoRA就是将模型中的线性层（一般是QKVO和FFN的线性层）低秩分
 ## QLoRA
 
 QLoRA就是在用LoRA前先对模型进行（4-bit）量化（也可二次量化，可选，二次量化就是对量化常数进行再次量化），同时提供page optimizer分页优化器，在GPU显存过高时用一部分CPU内存代替显存，解决显存不足的问题。
+![alt text](image-5.png)
