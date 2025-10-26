@@ -11,7 +11,7 @@ GLU（Gated Linear Unit，门控线性单元）是一种在深度学习中用于
 GLU函数的数学表达式为：
 
 $$\text{GLU}(x) = (X ∗ W + b) ⊗ σ(X ∗ V + c)$$
-其中 ⊗ 表示逐元素乘法，$X$ 是输入，$W$ 和 $V$ 是权重矩阵，$b$ 和 $c$ 是偏置项。
+其中 ⊗ 表示逐元素乘法，$X$ 是输入，$W$ 和 $V$ 是权重矩阵，$b$ 和 $c$ 是偏置项，σ是sigmoid函数。
 
 ### 1.2 关键性质
 
@@ -137,12 +137,11 @@ SwiGLU（Swish-Gated Linear Unit）是一种结合了Swish和GLU（Gated Linear 
 
 SwiGLU函数的数学表达式为：
 
-$$\text{SwiGLU}(a, b) = \text{Swish}(a) \otimes \sigma(b)$$
+$$\text{SwiGLU}(a, b) = \text{Swish}(a) \otimes b$$
 
 其中：
 - $a$ 和 $b$ 是输入张量。
 - $\text{Swish}(x) = x \cdot \sigma(x)$ 是Swish激活函数。
-- $\sigma(x) = \frac{1}{1 + e^{-x}}$ 是Sigmoid激活函数。
 - $\otimes$ 表示逐元素乘法（Hadamard乘积）。
 
 ### 3.2 关键性质
